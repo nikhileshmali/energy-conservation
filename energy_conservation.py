@@ -13,8 +13,8 @@ N = 100
 R = 1e15
 ran = 1          # range (multiple of R) of axes in plots
 G = 6.674e-11
-e = 0.1 * R      # 'softening' factor
-rho = 1408       # density of sun
+e = 0.1 * R     
+rho = 1408       # density of particles
 M_sun = 1.99e30
 
 def positions(n, rad):
