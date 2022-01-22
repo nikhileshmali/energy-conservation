@@ -18,7 +18,7 @@ rho = 1408       # density of particles
 M_sun = 1.99e30
 
 def positions(n, rad):
-    """Returns randomised initial positions of 'n' stars in a sphere of radius 'rad'"""
+    """Returns randomised initial positions of 'n' particles in a sphere of radius 'rad'"""
     positions = np.zeros((n, 3))
     r = np.random.uniform(low=-1.0, high=1.0, size=(n)) * rad
     phi = np.random.uniform(low=0, high=2*np.pi, size=(n))
@@ -90,7 +90,7 @@ sep_vect = separation_vectors(positions, N)
 forces = np.zeros(3)
 KE, PE, TE, PCTE = np.zeros(num_steps), np.zeros(num_steps),np.zeros(num_steps), np.zeros(num_steps)
 
-#### INITIAL STAR DISTRIBUTION ####
+
 xs, ys, zs = positions[:,0], positions[:,1], positions[:,2]  
 fig = plt.figure(figsize=(16, 12))
 ax = fig.add_subplot(2,3,1, projection='3d')
@@ -149,7 +149,6 @@ for i in range(num_steps):
     estimate = ((time.time() - start_time) * num_steps/(i+1))/(60*60)
     print("Progress: %s / %s (%f percent). Estimate: %f hours " %(i+1, num_steps, percent, estimate))
 
-#### FINAL STAR DISTRIBUTION ####
 xs, ys, zs = positions[:,0], positions[:,1], positions[:,2]
 ax = fig.add_subplot(2,3,2, projection='3d')
 ax.scatter(xs, ys, zs, s=5, c='red', marker = 'o')
